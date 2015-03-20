@@ -8,6 +8,7 @@ import Data.Maybe
 import Euler.Util
 import Euler.Problems
 import Language.Haskell.TH
+import System.CPUTime
 import System.Environment
 import System.Environment.FindBin
 import System.Path.Glob
@@ -159,6 +160,7 @@ import Euler.Problem144
 import Euler.Problem145
 import Euler.Problem148
 
+import Euler.Problem151
 import Euler.Problem152
 import Euler.Problem160
 
@@ -213,9 +215,8 @@ parseArgs args = let (Args a b c d e) = foldr pa (Args False False False False [
               | otherwise                     = undefined -- again
 
 findInput :: Int -> IO String
-findInput n = do
-  glob inpPattern >>= readFile . head
-      where inpPattern = "src/Euler/" ++ show n ++ "/*.txt"
+findInput n = glob inpPattern >>= readFile . head
+    where inpPattern = "src/Euler/" ++ show n ++ "/*.txt"
 
 $(buildProbs)
 
