@@ -17,4 +17,4 @@ primePowerTriples n = accumArray (||) False (1, n) $
           tetras  = takeWhile (< n) $ map (^4) primes
 
 problem87 = let n = 50000000
-            in NoInputI . length . filter id . elems $ primePowerTriples n
+            in NoInput . show . length . filter id . elems $ primePowerTriples n

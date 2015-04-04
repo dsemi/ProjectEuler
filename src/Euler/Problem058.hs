@@ -10,5 +10,5 @@ primeRatioOnDiagonals np n r
     | otherwise = primeRatioOnDiagonals (np + length [a | let n' = n^2+n+1, a <- [n',n'+n+1,n'+2*n+2], isPrime a]) (n+2) r
 
 
-problem58 = NoInputI $ primeRatioOnDiagonals 3 3 0.1
+problem58 = NoInput . show $ primeRatioOnDiagonals 3 3 0.1
 

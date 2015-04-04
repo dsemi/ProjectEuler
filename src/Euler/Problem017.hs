@@ -22,4 +22,4 @@ getLen i
     | i `mod` 100 == 0 = length $ numToStr M.! i
     | otherwise        = length (numToStr M.! (i `div` 100 * 100)) + 3 + getLen (i `mod` 100)
 
-problem17 = NoInputI $ sum [getLen n | n <- [1..1000]]
+problem17 = NoInput . show $ sum [getLen n | n <- [1..1000]]

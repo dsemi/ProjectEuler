@@ -19,4 +19,4 @@ countCoins n xs     m
     | otherwise       = countCoins n (init xs) m + countCoins (n - last xs) xs m
 
 problem31 = let m = foldl (\acc x -> memo x acc coins) empty coins
-            in NoInputI $ m ! (200,coins)
+            in NoInput . show $ m ! (200,coins)

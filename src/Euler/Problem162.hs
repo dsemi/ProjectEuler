@@ -18,4 +18,4 @@ hex = map ((hexMap !) . (`mod` 16)) . applyUntil 0 (`div` 16)
 --                All n digit nums - No 0 or 1 or A + No {0,1} or {0,A} or {1,A} - No {0,1,A}
 numHexLengthN n = 15*16^(n-1)      - 43*15^(n-1)    + 41*14^(n-1)                - 13^n
 
-problem162 = NoInputS . hex . sum $ map numHexLengthN [3..16]
+problem162 = NoInput . hex . sum $ map numHexLengthN [3..16]

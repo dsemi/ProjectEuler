@@ -21,4 +21,4 @@ divisorSumMaps n = fromList sums
 sumAmicablePairs m = (`div` 2) . foldl amicable 0 $ keys m
     where amicable acc k = if member (m ! k) m && k == m ! (m ! k) then acc+k+(m ! k) else acc
 
-problem21 = NoInputI . sumAmicablePairs $ divisorSumMaps 9999
+problem21 = NoInput . show . sumAmicablePairs $ divisorSumMaps 9999

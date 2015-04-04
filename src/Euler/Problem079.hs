@@ -17,4 +17,4 @@ p79 keylog = let numStrings = lines keylog
                  x          = nub $ concat numStrings
              in sortBy (cmp m) x
 
-problem79 = HasInputS p79
+problem79 = HasInput p79

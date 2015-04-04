@@ -30,7 +30,7 @@ getPellSolutions n = [(p,q) | (p,q) <- convergents, p^2 - n*q^2 == 1]
     where convergents = getConvergents $ sqrtContinuedFraction n
 
 problem94 = let xys = takeWhile ((<=10^9) . subtract 1 . (*2) . fst) $ getPellSolutions 3
-            in NoInputI $ sum [ a3+1 | (x,y) <- xys
+            in NoInput . show $ sum [ a3+1 | (x,y) <- xys
                               , let a3 = 2*x-1
                               , let area3 = y*(x-2)
                               , a3 > 0 && a3 `mod` 3 == 0

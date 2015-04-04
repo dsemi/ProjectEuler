@@ -6,4 +6,4 @@ import Euler.Util
 
 maxRem a = 2*a*((a-1) `div` 2)
 
-problem120 = NoInputI . sum $ map maxRem [3..1000]
+problem120 = NoInput . show . sum $ map maxRem [3..1000]

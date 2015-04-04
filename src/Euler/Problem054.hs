@@ -31,5 +31,5 @@ handValue xs = (rank,tiebreak)
           kind n   = sortBy (flip compare) $ M.keys $ M.filter (==n) counts
           tiebreak = [4,3,2,1] >>= kind
 
-problem54 = HasInputI $ length . filter (==GT) . map (\(a,b) -> handValue a `compare` handValue b) 
+problem54 = HasInput $ show . length . filter (==GT) . map (\(a,b) -> handValue a `compare` handValue b) 
             . map (splitAt 5) . map words . lines

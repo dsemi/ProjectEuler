@@ -5,7 +5,7 @@ module Euler.Problem020
 import Data.Char (digitToInt)
 import Euler.Util
 
-problem20 = NoInputI . sumDigits $ f 100
+problem20 = NoInput . show . sumDigits $ f 100
     where sumDigits n = sum . map digitToInt $ show n
           f 0 = 1
           f n = n * f (n-1)

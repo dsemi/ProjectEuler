@@ -22,5 +22,5 @@ problem267 = let f       = findMin func 0.9999 0.0001
                  lost n  = n - f * n
                  final r = (!! r) $ iterate won $ (!! (1000-r)) $ iterate lost 1
                  lim     = fromIntegral $ head [ r | r <- [1..1000], final r > 10^9]
-             in NoInputS . show . round12 
+             in NoInput . show . round12 
                     $ (sum $ map (fromIntegral . choose 1000) [lim..1000]) / fromIntegral (2^1000)

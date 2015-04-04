@@ -14,4 +14,4 @@ abunds = filter (abunds_array !) [1..n]
 rests x = map (x-) $ takeWhile (<= x `div` 2) abunds
 isSum = any (abunds_array !) . rests
  
-problem23 = NoInputI . sum . filter (not . isSum) $ [1..n]
+problem23 = NoInput . show . sum . filter (not . isSum) $ [1..n]

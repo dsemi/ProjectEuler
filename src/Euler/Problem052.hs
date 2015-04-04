@@ -11,7 +11,7 @@ l = concatMap ranges [1..]
                          n = pred . length $ show o
                      in [o..read ('1':replicate n '6') :: Integer]
 
-problem52 = NoInputI $ head [ a | a <- l
+problem52 = NoInput . show $ head [ a | a <- l
                             , let a1 = sort . show $ a
                             , let a2 = sort . show $ a*2
                             , let a3 = sort . show $ a*3 

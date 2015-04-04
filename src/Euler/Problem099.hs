@@ -5,4 +5,4 @@ module Euler.Problem099
 import Data.List.Split
 import Euler.Util
 
-problem99 = HasInputI $ snd . maximum . flip zip [1..] . map ((\[a,b] -> log a * b) . map read . splitOn ",") . lines
+problem99 = HasInput $ show . snd . maximum . flip zip [1..] . map ((\[a,b] -> log a * b) . map read . splitOn ",") . lines

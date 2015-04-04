@@ -15,4 +15,4 @@ fareySequence a b
           a' = (na+nb) % (da + db)
 
 
-problem71 = NoInputI . numerator $ fareySequence (0%1) (3%7)
+problem71 = NoInput . show . numerator $ fareySequence (0%1) (3%7)

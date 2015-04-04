@@ -16,7 +16,7 @@ pTriples = [p |  n <- [1..floor (sqrt 1500000)],
                  let p = a + b + c,
                  p < 1500000]
 
-problem75 = NoInputI . length . filter (==1) $ elems a
+problem75 = NoInput . show . length . filter (==1) $ elems a
     where a :: UArray Int Int
           a = accumArray (+) 0 (1,1500000) [(p,1) 
                                             | p <- [n*p | p <- pTriples

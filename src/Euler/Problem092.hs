@@ -23,6 +23,6 @@ countNum xs = product . map (factorial . length) $ group xs
 yield :: Int -> Int
 yield = until (\x -> x == 89 || x == 1) next
 
-problem92 = NoInputI $ sum [ div p7 (countNum a) | a <- tail $ makeIncreas 7 0
+problem92 = NoInput . show $ sum [ div p7 (countNum a) | a <- tail $ makeIncreas 7 0
                            , yield (sum $ map (^2) a) == 89]
     where p7 = factorial 7

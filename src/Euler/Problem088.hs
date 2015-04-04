@@ -44,4 +44,4 @@ productSumNumbers x = runSTUArray $ do
             when (cnt < x-1) $ addNumsToArray a c ns
 
 
-problem88 = NoInputI . S.foldl' (+) 0 . S.fromList . elems $ productSumNumbers 12000
+problem88 = NoInput . show . S.foldl' (+) 0 . S.fromList . elems $ productSumNumbers 12000

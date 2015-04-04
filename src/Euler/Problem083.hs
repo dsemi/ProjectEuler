@@ -43,4 +43,4 @@ p83 mFile = let matrix    = arrayMatrix . map (read . ('[':) . (++"]")) $ lines 
                             in listArray bds . map (\(r,c) -> (uncurry (+) ulim)-r-c) $ range bds
             in a_star (1,1) ulim heuristic matrix
 
-problem83 = HasInputI p83
+problem83 = HasInput $ show . p83

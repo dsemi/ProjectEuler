@@ -25,4 +25,4 @@ checkPrime p
           num   = if length x > 2 then Just (head x) else Nothing
           repls = map (\x -> [x]) ['0'..'9']
 
-problem51 = NoInputS . head $ filter checkPrime primeNums
+problem51 = NoInput . head $ filter checkPrime primeNums

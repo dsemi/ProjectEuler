@@ -4,5 +4,5 @@ module Euler.Problem015
 
 import Euler.Util
 
-problem15 = NoInputI $ 40 `choose` 20
+problem15 = NoInput . show $ 40 `choose` 20
     where n `choose` r = product [n-r+1..n] `div` product [1..r]

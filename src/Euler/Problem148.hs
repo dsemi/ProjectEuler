@@ -14,4 +14,4 @@ p148 ub p = findSol 0 ub (p^logp) (tp^logp)
           findSol sol a rows nz = let (d,r) = a `divMod` rows
                                   in findSol (sol + nz * tri d) r (rows `div` p) (nz* (d+1) `div` tp)
 
-problem148 = NoInputI $ p148 (10^9) 7
+problem148 = NoInput . show $ p148 (10^9) 7

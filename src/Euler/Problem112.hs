@@ -16,4 +16,4 @@ _countBouncy b n p
  
 countBouncyUpTo p = _countBouncy 0 1 p
 
-problem112 = NoInputI $ countBouncyUpTo 0.99
+problem112 = NoInput . show $ countBouncyUpTo 0.99

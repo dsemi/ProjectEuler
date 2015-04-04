@@ -17,4 +17,4 @@ sumTotient n = (1 + foldl1' (+) [m*s | k <- [1..n], let m = mobius k, let s = (n
 
 sieve = factorSieve 1000000
 
-problem72 = NoInputI $ sumTotient 1000000 - 1
+problem72 = NoInput . show $ sumTotient 1000000 - 1

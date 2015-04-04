@@ -13,4 +13,4 @@ nextFactor n = let m = smallestDivisor n
 
 factorize = unfoldr nextFactor
 
-problem3 = NoInputI . last $ factorize 600851475143
+problem3 = NoInput . show . last $ factorize 600851475143

@@ -16,4 +16,4 @@ partitions =
         penta n = n*(3*n - 1) `div` 2
         parts n = takeWhile (>= 0) [n-x| x <- suite]
 
-problem76 = NoInputI $ partitions ! 100 - 1
+problem76 = NoInput . show $ partitions ! 100 - 1

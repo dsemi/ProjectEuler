@@ -11,4 +11,4 @@ p191 = f 1 0 0 0 0 0
             where x3 = x2 + x1 + x0
                   y3 = x3 + y2 + y1 + y0
 
-problem191 = NoInputI $ p191 30
+problem191 = NoInput . show $ p191 30

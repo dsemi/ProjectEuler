@@ -47,7 +47,7 @@ next acc (s:ss) n (x:xs) = case s of
 next acc _ 0 _ = return $ reverse acc
 next acc _ _ _ = []
 
-problem185 = NoInputS . map parseSol . solve . sortBy (comparing fst) 
+problem185 = NoInput . map parseSol . solve . sortBy (comparing fst) 
        $ map parseL params
     where parseL x = let [num,c] = split " ;" x 
                      in (digitToInt (head c), map digitToInt num)

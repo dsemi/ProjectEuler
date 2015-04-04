@@ -15,4 +15,4 @@ sumNumsUpToDivisibleBy n ms = sum . concat . zipWith map (cycle [(*1), (*(-1))])
           removeMultiples (x:xs) ys = removeMultiples xs $ ys `minus` [2*x, 3*x ..]
           f a = (n - n `mod` a) * ((n `div` a) + 1) `div` 2
 
-problem1 = NoInputI $ sumNumsUpToDivisibleBy 999 [3, 5]
+problem1 = NoInput . show $ sumNumsUpToDivisibleBy 999 [3, 5]

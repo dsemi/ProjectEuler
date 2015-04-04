@@ -25,7 +25,7 @@ problem34 = let (count,sums)   = check (0,[]) [10000,9999..3]
                 reverseCache   = foldl' accumCache empty cache
                 accumCount c i = let delta = i - fromJust (lookup (i `div` 10000) cache)
                                  in foldl' (\s n -> s+i+n) c $ findWithDefault [] (-delta) reverseCache
-            in NoInputI $ foldl' accumCount count [10000,20000..7 * memoFact 9]
+            in NoInput . show $ foldl' accumCount count [10000,20000..7 * memoFact 9]
     where accumCache m (k,v) = insertWith (++) d [k] m
               where e = if k < 1000 then 4 - length (show k) else 0
                     d = k - v - e

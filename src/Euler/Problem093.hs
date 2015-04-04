@@ -44,5 +44,5 @@ apply nums = let xs = [ S.fromList $ catMaybes [o1, o2, o3, o4, o5] | [a,b,c,d] 
 numConsec :: [Int] -> Int
 numConsec = length . takeWhile id . zipWith (==) [1..] . dropWhile (<=0)
 
-problem93 = NoInputS . map intToDigit . snd . maximum 
+problem93 = NoInput . map intToDigit . snd . maximum 
             . map (numConsec . apply &&& id) $ combinations 4 [1..9]

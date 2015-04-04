@@ -4,4 +4,4 @@ module Euler.Problem013
 
 import Euler.Util
 
-problem13 = HasInputS $ take 10 . show . sum . map read . lines
+problem13 = HasInput $ take 10 . show . sum . map read . lines

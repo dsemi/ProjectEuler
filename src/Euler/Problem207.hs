@@ -18,4 +18,4 @@ fineSearch s e
       where mid = s + (e-s) `div` 2
 
 problem207 = let s = roughSearch 2
-             in NoInputI . fineSearch s $ 2*s
+             in NoInput . show . fineSearch s $ 2*s

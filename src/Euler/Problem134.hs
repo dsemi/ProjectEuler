@@ -31,4 +31,4 @@ findS p2 p1 r = let rDigs            = reverse $ digits r
                      _        -> r
 
 problem134 = let n = 1000000
-             in NoInputI $ findSs (takeWhile ((<n) . fst) . drop 2 . zip primes $ tail primes) 0
+             in NoInput . show $ findSs (takeWhile ((<n) . fst) . drop 2 . zip primes $ tail primes) 0

@@ -28,4 +28,4 @@ magic chain used
                  filter (not . (`elem` used) . snd) nums
 
 
-problem61 = NoInputI . sum . fromJust . head . filter isJust $ map (\x -> magic [x] "O") octagons
+problem61 = NoInput . show . sum . fromJust . head . filter isJust $ map (\x -> magic [x] "O") octagons

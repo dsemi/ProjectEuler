@@ -17,4 +17,4 @@ p81 mFile = let matrix = map (map read . splitOn ",") $ lines mFile
                           in [a'] ++ zipWith min as bs ++ [last bs]
             reduce2 a b = zipWith (+) b . zipWith min a $ tail a
 
-problem81 = HasInputI p81
+problem81 = HasInput $ show . p81

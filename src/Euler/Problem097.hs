@@ -4,4 +4,4 @@ module Euler.Problem097
 
 import Euler.Util
 
-problem97 = NoInputI $ (28433*2^7830457 + 1) `mod` 10^10
+problem97 = NoInput . show $ (28433*2^7830457 + 1) `mod` 10^10

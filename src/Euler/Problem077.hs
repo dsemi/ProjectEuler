@@ -29,5 +29,5 @@ counter = foldl (\without p -> let (poor,rich) = splitAt p without
                                in with) (1 : repeat 0)
 
 problem77 = let (Just x) = find ((>5000) . (ways !!)) $ [1..]
-            in NoInputI x
+            in NoInput $ show x
     where ways = counter $ primesToUA 1000

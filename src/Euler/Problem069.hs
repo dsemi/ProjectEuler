@@ -15,4 +15,4 @@ maxRatioNToPhi m n = max m (n % totient n,n)
 main = print . snd $ foldl' maxRatioNToPhi (0,0) [2..1000000]
 -}
 
-problem69 = NoInputI . maximum . takeWhile (<=10^6) . map product . tail $ inits primes
+problem69 = NoInput . show . maximum . takeWhile (<=10^6) . map product . tail $ inits primes

@@ -26,5 +26,5 @@ getConvergents (a0:a1:as) = let pqs = (p0,q0):(p1,q1):zipWith3 nextConvergent pq
 getPellSolutions n = [(p,q) | (p,q) <- convergents, p^2 - n*q^2 == 1]
     where convergents = getConvergents $ sqrtContinuedFraction n
 
-problem66 = NoInputI . snd . maximum . map ((head . getPellSolutions) &&& id) 
+problem66 = NoInput . show . snd . maximum . map ((head . getPellSolutions) &&& id) 
             $ [2..1000] `minus` scanl1 (+) [1,3..]

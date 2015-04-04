@@ -21,6 +21,6 @@ nextState m' = M.fromList [ (i, next) | i <- poss
 
 problem164 = let n = 20
                  initial = M.fromList . zip [1..9] $ repeat 1
-             in NoInputI . sum . M.elems . head . drop (n-1) $ iterate nextState initial
+             in NoInput . show . sum . M.elems . head . drop (n-1) $ iterate nextState initial
 
 -- find numbers in poss that end with the number that you start with and whose sum will add to the number that you end with and be <= 9

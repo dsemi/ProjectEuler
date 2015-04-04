@@ -4,4 +4,4 @@ module Euler.Problem005
 
 import Euler.Util
 
-problem5 = NoInputI $ foldl1 lcm [1..20]
+problem5 = NoInput . show $ foldl1 lcm [1..20]

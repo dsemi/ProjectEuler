@@ -19,5 +19,5 @@ problem90 = let choices = "0123456786"
                 -- Replaced 9s w/ 6s because they are equivalent
                 nums    = ["01", "04", "06", "16", "25", "36", "46", "64", "81"]
                 dice    = map fromList $ combinations 6 choices
-            in NoInputI . (`div` 2) . length . filter id 
+            in NoInput . show . (`div` 2) . length . filter id 
                    $ repsAllNums nums <$> dice <*> dice

@@ -11,4 +11,4 @@ list n = filter isLeftT $ if isPrime n then n:ns else []
 
 isLeftT = all isPrime . map read . init . tail . tails . show
 
-problem37 = NoInputI . sum .  filter (>=10) $ concatMap list [2,3,5,7]
+problem37 = NoInput . show . sum .  filter (>=10) $ concatMap list [2,3,5,7]

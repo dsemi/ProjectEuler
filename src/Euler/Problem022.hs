@@ -12,4 +12,4 @@ p22 nameFile = let names = sort . split "\",\"" . init . tail $ strip nameFile
                in foldl' nameVal 0 $ zip [1..] names
     where nameVal t (i,n) = t + i * sum (map ((subtract 64) . ord) n)
 
-problem22 = HasInputI p22
+problem22 = HasInput $ show . p22

@@ -8,7 +8,7 @@ import Math.NumberTheory.Primes.Factorisation
 
 problem47 = let numsWithNFactors = [ x | x <- [1..]
                                    , length (factorise x) == n]
-            in NoInputI $ findNConsec numsWithNFactors 0 0
+            in NoInput . show $ findNConsec numsWithNFactors 0 0
     where n = 4
           findNConsec (num:nums) p c
               | c == n-1     = p + 1 - (fromIntegral n)

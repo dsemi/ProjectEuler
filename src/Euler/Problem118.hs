@@ -21,4 +21,4 @@ checkPermutations = sum . map (cp 0 9)
                           , next > p
                           , isPrime $ toInteger next ]
 
-problem118 = NoInputI . checkPermutations $ permutations [1..9]
+problem118 = NoInput . show . checkPermutations $ permutations [1..9]

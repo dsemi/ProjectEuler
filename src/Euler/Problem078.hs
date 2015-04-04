@@ -26,4 +26,4 @@ partitions = runST $ do
             unsafeWrite a n su
             if su /= 0 then calcPartitions a ns c else writeSTRef c n
 
-problem78 = NoInputI partitions
+problem78 = NoInput $ show partitions

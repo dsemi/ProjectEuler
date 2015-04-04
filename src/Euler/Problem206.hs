@@ -50,6 +50,6 @@ p206 sol l = head' $ map test [9,8..0]
             p206 num (l+1)
 
 problem206 = let result = p206 0 0 
-             in NoInputI $ if isJust result
+             in NoInput . show $ if isJust result
                            then fromJust result
                            else 0 -- No solution found

@@ -14,4 +14,4 @@ permutations xs n = x : permutations (delete x xs) (mod n m)
         y = div n m
         x = xs !! y
  
-problem24 = NoInputS $ permutations "0123456789" 999999
+problem24 = NoInput $ permutations "0123456789" 999999

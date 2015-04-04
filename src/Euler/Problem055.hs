@@ -21,4 +21,4 @@ lychrel n = f (n + revNum n) 0
           f n i | palindrome $ show n = False
                 | otherwise = f (n + revNum n) $ succ i
 
-problem55 = NoInputI . length $ filter lychrel [1..9999]
+problem55 = NoInput . show . length $ filter lychrel [1..9999]

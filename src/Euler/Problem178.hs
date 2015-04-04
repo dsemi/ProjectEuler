@@ -22,4 +22,4 @@ stepState m  = M.fromListWith (+) $ allStates >>= neighborStates m
 numSolutionsInMap    = sum . map snd . filter (isPandigital . fst) . M.toList
 numSolutionsOfSize n = sum . map numSolutionsInMap . take n $ iterate stepState initialState
  
-problem178 = NoInputI $ numSolutionsOfSize 40
+problem178 = NoInput . show $ numSolutionsOfSize 40

@@ -12,4 +12,4 @@ diff (a,b) n ans
                   in diff (r,b + gcd r (b-1) - 1) n (b+n)
 
 problem443 = let n = 10^15
-             in NoInputI $ diff (6,10) n 0
+             in NoInput . show $ diff (6,10) n 0

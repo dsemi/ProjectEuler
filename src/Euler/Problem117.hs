@@ -14,4 +14,4 @@ combos x = [[r,g,bl,b] |
             b  <- [0..x],
             2*r+3*g+4*bl+b == x]
 
-problem117 = NoInputI . sum . map (\xs -> f (sum xs) `div` (product $ map f xs)) $ combos 50
+problem117 = NoInput . show . sum . map (\xs -> f (sum xs) `div` (product $ map f xs)) $ combos 50

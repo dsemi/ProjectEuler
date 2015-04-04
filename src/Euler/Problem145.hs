@@ -11,4 +11,4 @@ numSolutions n
                        in 5 * 20^(k+1) * 25^k
     | otherwise      = 0
 
-problem145 = NoInputI . sum $ map numSolutions [1..9]
+problem145 = NoInput . show . sum $ map numSolutions [1..9]

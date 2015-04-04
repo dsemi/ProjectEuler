@@ -20,4 +20,4 @@ rads n = runST $ do
             sort a
             M.unsafeRead a 10000
 
-problem124 = NoInputI . snd $ rads 100000
+problem124 = NoInput . show . snd $ rads 100000

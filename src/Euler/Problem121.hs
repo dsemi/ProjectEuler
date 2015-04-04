@@ -17,5 +17,5 @@ genCombos n = map (map (discs !)) . filter ((> n `div` 2) . sum) $ gc n
 
 problem121 = let x = 15
                  r = sum . map (product . flip (zipWith ($)) blueProbs) $ genCombos x
-             in NoInputI . floor $ denominator r % numerator r
+             in NoInput . show . floor $ denominator r % numerator r
     where blueProbs = map (1%) [2..]

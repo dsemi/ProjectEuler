@@ -45,4 +45,4 @@ cmp (a,b) (c,d)
     | a > c     = LT
     | otherwise = EQ
 
-problem95 = NoInputI . fst . maximumBy cmp $ assocs findChainLens
+problem95 = NoInput . show . fst . maximumBy cmp $ assocs findChainLens

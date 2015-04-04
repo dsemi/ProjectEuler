@@ -7,7 +7,7 @@ module Euler.Problem142
 import Euler.Util
 import Math.NumberTheory.Powers.Squares
 
-problem142 = NoInputI $ head [ x+y+z | a <- squares
+problem142 = NoInput . show $ head [ x+y+z | a <- squares
                              , c <- takeWhile (<a) squares
                              , let f = a-c
                              , f > 0 && isSquare' f

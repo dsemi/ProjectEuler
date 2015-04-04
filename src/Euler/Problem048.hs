@@ -4,4 +4,4 @@ module Euler.Problem048
 
 import Euler.Util
 
-problem48 = NoInputI $ sum [n^n `mod` 10^10 | n <- [1..1000]] `mod` (10^10)
+problem48 = NoInput . show $ sum [n^n `mod` 10^10 | n <- [1..1000]] `mod` (10^10)

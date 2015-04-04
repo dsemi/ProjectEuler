@@ -40,4 +40,4 @@ p98 wFile = let words = read ('[' : wFile ++ "]") :: [String]
             in maximum . mapMaybe sqGrams . filter ((>1) . length) . M.elems 
                    $ M.fromListWith (++) [(sort w,[w]) | w <- words]
 
-problem98 = HasInputI p98
+problem98 = HasInput $ show . p98

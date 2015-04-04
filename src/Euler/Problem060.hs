@@ -30,7 +30,7 @@ minPrimePairSet n = fromJust $ pps 0 ps 0
               | otherwise = listToMaybe $ mapMaybe (\p -> pps (c+1) (prs `isect` pairs p) (t+p)) prs 
 
 
-problem60 = NoInputI $ minPrimePairSet 5
+problem60 = NoInput . show $ minPrimePairSet 5
 
 
 

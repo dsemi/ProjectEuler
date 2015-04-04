@@ -11,4 +11,4 @@ palindrome xs = p [] xs xs
          p rev (x:xs) [_] = rev == xs
          p rev xs [] = rev == xs
 
-problem36 = NoInputI $ sum [n | n <- [1..999999], palindrome (digits 10 n), palindrome (digits 2 n)]
+problem36 = NoInput . show $ sum [n | n <- [1..999999], palindrome (digits 10 n), palindrome (digits 2 n)]

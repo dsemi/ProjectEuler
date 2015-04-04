@@ -23,4 +23,4 @@ expoMap n = let twos  = takeWhile (<=n) $ iterate (*2) 1
 
 problem122 = let n = 200
                  m = expoMap 200
-             in NoInputI . sum $ map (m M.!) [1..n] 
+             in NoInput . show . sum $ map (m M.!) [1..n] 

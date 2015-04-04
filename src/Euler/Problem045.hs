@@ -17,7 +17,7 @@ isPentagonal num = let n = 24*num + 1
 isHexagonal num = let n = 8*num + 1
                   in isSquare n && flrt n `mod` 4 == 3
 
-problem45 = NoInputI . head . filter (\x -> isTriangular x && isPentagonal x) 
+problem45 = NoInput . show . head . filter (\x -> isTriangular x && isPentagonal x) 
             $ dropWhile (<40756) hexes
 
 flrt :: Integer -> Integer

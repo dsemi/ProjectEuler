@@ -5,7 +5,7 @@ module Euler.Problem188
 import Euler.Util
 import Math.NumberTheory.Primes
 
-problem188 = NoInputI $ tetrate 1777 1855
+problem188 = NoInput . show $ tetrate 1777 1855
     where modulus = 10^8
           phi     = totient (10^8)
           fastPower x 1 modulus = x `mod` modulus

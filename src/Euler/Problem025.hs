@@ -11,4 +11,4 @@ fibonacci = memoFix f
           f _ 2   = 1
           f fib n = fib (n-1) + fib (n-2)
 
-problem25 = NoInputI $ head [x | x <- [1..], let f = fibonacci x, f `div` 10^999 >= 1]
+problem25 = NoInput . show $ head [x | x <- [1..], let f = fibonacci x, f `div` 10^999 >= 1]

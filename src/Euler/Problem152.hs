@@ -17,4 +17,4 @@ p152 curr parts
     | otherwise = let picks = zip [1..] . map fst $ takeWhile ((<=0) . (curr-) . snd) parts
                   in sum $ map (\(i,x) -> p152 (curr-x) $ drop i parts) picks
 
-problem152 = NoInputI . p152 (1%2) $ partialSums 80
+problem152 = NoInput . show . p152 (1%2) $ partialSums 80

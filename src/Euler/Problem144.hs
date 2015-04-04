@@ -34,5 +34,5 @@ findReflectedLine (Line m2 _ (x2,y2)) =
     in Line m' b' (x', m'*x'+b')
 
 problem144 = let initialLine = findLine 0 10.1 1.4 $ -9.6
-             in NoInputI . length . takeWhile (\(Line _ _ (x,y)) -> abs x > 0.01 || y < 0) 
+             in NoInput . show . length . takeWhile (\(Line _ _ (x,y)) -> abs x > 0.01 || y < 0) 
                     $ iterate findReflectedLine initialLine

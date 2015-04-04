@@ -31,6 +31,6 @@ chainLens n = a
               | otherwise       = cLen next (c+1) $ S.insert next s
               where next = sumDigitFacts n'
 
-problem74 = NoInputI . foldl' (\c x -> if x == 60 
+problem74 = NoInput . show . foldl' (\c x -> if x == 60 
                                        then c+1 
                                        else c) 0 . elems $ chainLens 999999

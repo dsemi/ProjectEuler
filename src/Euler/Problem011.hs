@@ -22,4 +22,4 @@ maxGridProduct4 g = max rowsCols diags
     where rowsCols = maxProductRowCol4 g
           diags    = maxProductDiag4 g
 
-problem11 = HasInputI $ maxGridProduct4 . map ((map read) . words) . lines
+problem11 = HasInput $ show . maxGridProduct4 . map ((map read) . words) . lines

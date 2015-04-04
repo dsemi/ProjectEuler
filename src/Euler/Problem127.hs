@@ -32,5 +32,5 @@ abcHit n = sum [ c | c <- [3..n]
             liftM2 (,) (freeze a) $ freeze a'
 
 
-problem127 = NoInputI $ abcHit 120000
+problem127 = NoInput . show $ abcHit 120000
 

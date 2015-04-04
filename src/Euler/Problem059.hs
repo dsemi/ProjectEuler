@@ -20,4 +20,4 @@ p59 cipher = let str     = map read $ splitOn "," cipher
                  message = map chr . zipWith xor str . map ord $ cycle key
              in sum $ map ord message
 
-problem59 = HasInputI p59
+problem59 = HasInput $ show . p59

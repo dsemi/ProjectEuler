@@ -11,5 +11,5 @@ pairs n = [(a,b) | b <- takeWhile (<n) primes, a <- filter odd [-b+1..n-1], a+b>
 
 numPrimesGenerated (a,b) = length . takeWhile isPrime $ map (quadratic a b) [0..]
 
-problem27 = NoInputI . snd . maximum . map (\(a,b) -> (numPrimesGenerated (a,b), a*b)) $ pairs 1000
+problem27 = NoInput . show . snd . maximum . map (\(a,b) -> (numPrimesGenerated (a,b), a*b)) $ pairs 1000
 

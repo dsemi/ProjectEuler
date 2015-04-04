@@ -7,5 +7,5 @@ import Euler.Util
 
 sqrtIterations = map (+1) $ iterate (recip . (+2)) (1%2)
 
-problem57 = NoInputI . length . filter nGTd $ take 1000 sqrtIterations
+problem57 = NoInput . show . length . filter nGTd $ take 1000 sqrtIterations
     where nGTd r = (length . show . numerator) r > (length . show . denominator) r

@@ -24,4 +24,4 @@ p107 gFile = let grid          = map (splitOn ",") $ lines gFile
                                         else let ic = read col
                                              in ((ic,j):l, t'+ic, j+1)
 
-problem107 = HasInputI p107
+problem107 = HasInput $ show . p107

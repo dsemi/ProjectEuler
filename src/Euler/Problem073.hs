@@ -13,4 +13,4 @@ farey a@(na,da) b@(nb,db) c c'
           right    = farey a mediant c 0
           left     = farey mediant b c (1 + c' + right)
 
-problem73 = NoInputI $ farey (1,3) (1,2) 12000 0
+problem73 = NoInput . show $ farey (1,3) (1,2) 12000 0

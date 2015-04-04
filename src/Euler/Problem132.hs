@@ -7,5 +7,5 @@ import Math.NumberTheory.Primes
 import Math.NumberTheory.Moduli
 
 problem132 = let k = 10^9
-             in NoInputI . sum $ take 40 [ p | p <- primes
+             in NoInput . show . sum $ take 40 [ p | p <- primes
                                          , powerModInteger 10 k (9*p) == 1 ]

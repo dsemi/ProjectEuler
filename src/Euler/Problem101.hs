@@ -42,7 +42,7 @@ replace :: Int -> a -> [a] -> [a]
 replace n e l = a ++ e : b
     where (a, _ : b) = splitAt n l
 
-problem101 = NoInputI . sum $ map (numerator . findFIT . op . lastCol . rref . findBOP) pointGroups
+problem101 = NoInput . show . sum $ map (numerator . findFIT . op . lastCol . rref . findBOP) pointGroups
     where coords      = take 10 us
           vals        = map snd us
           pointGroups = tail $ inits coords

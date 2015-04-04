@@ -13,7 +13,7 @@ pTriples n = unfoldTree nextTriplets first
           fC (a,b,c) = ((-a) + 2*b + 2*c, (-2)*a + b + 2*c, (-2)*a + 2*b + 3*c)
           nextTriplets x = (x, filter (\(a,b,c) -> a+b+c <= n) [fA x, fB x, fC x])
 
-problem39 = NoInputI . snd . maximum . map (\x -> (length x, head x)) . group . sort 
+problem39 = NoInput . show . snd . maximum . map (\x -> (length x, head x)) . group . sort 
             $ [ n*p | p <- map add $ flatten $ pTriples 1000
               , n <- [1..1000 `div` p]]
     where add (a,b,c) = a+b+c

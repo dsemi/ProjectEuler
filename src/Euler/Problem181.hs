@@ -20,4 +20,4 @@ partitions b w = let dpArray :: UArray (Int,Int) Int
                        return a
                  in dpArray ! (b,w)
 
-problem181 = NoInputI $ partitions 60 40
+problem181 = NoInput . show $ partitions 60 40

@@ -9,7 +9,7 @@ import Euler.Util
 pattern = map (m !) "UDDDUdddDDUDDddDdDddDDUDDdUUDd"
     where m = fromList [('D',0),('U',1),('d',2)]
 
-problem277 = NoInputI $ mCollatz (10^15) 1 1
+problem277 = NoInput . show $ mCollatz (10^15) 1 1
     where mCollatz n pm i = let seq     = map (`mod` 3) $ iterate nextMCollatz n
                                 (cp,nm) = foldl' cmp (True,0) $ zip pattern seq
                             in if cp then n

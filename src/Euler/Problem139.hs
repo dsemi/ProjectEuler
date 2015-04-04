@@ -25,5 +25,5 @@ getPellSolutions n = [(p,q) | (p,q) <- convergents, p^2 - n*q^2 == -1]
     where convergents = getConvergents $ sqrtContinuedFraction n
 
 problem139 = let limit = 10^8
-             in NoInputI . sum . map (limit `div`) . takeWhile (<limit) 
+             in NoInput . show . sum . map (limit `div`) . takeWhile (<limit) 
                     . map (uncurry (+)) . tail $ getPellSolutions 2

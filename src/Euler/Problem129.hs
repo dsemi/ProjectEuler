@@ -11,4 +11,4 @@ a n = findDiv 1 1
               | r == 0    = k
               | otherwise = findDiv ((10*r+1) `mod` n) (k+1)
 
-problem129 = NoInputI $ head [n | n <- [1000001,1000003..], n `mod` 5 /= 0, a n > 1000000]
+problem129 = NoInput . show $ head [n | n <- [1000001,1000003..], n `mod` 5 /= 0, a n > 1000000]

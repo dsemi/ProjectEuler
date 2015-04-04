@@ -5,4 +5,4 @@ module Euler.Problem006
 import Euler.Util
 
 problem6 = let n = 100
-           in NoInputI $ (n*(n+1) `div` 2)^2 - sum (take n (scanl1 (+) [1,3..]))
+           in NoInput . show $ (n*(n+1) `div` 2)^2 - sum (take n (scanl1 (+) [1,3..]))

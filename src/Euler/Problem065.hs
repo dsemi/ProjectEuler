@@ -15,4 +15,4 @@ eIteration n = (+2) . recip . foldl (\acc a -> a + recip acc) (x !! (n-2)) . rev
 
 sumDigits n = sum . map digitToInt $ show n
 
-problem65 = NoInputI . sumDigits . numerator $ eIteration 100
+problem65 = NoInput . show . sumDigits . numerator $ eIteration 100

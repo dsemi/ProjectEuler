@@ -28,4 +28,4 @@ periodLength s = let m = 0
                                 a' = (a0 + m') `div` d'
                             in findLen m' d' a' (c+1)
 
-problem64 = NoInputI . length . filter odd . map periodLength $ [1..10000] `minus` scanl1 (+) [1,3..]
+problem64 = NoInput . show . length . filter odd . map periodLength $ [1..10000] `minus` scanl1 (+) [1,3..]

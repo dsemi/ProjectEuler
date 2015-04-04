@@ -28,4 +28,4 @@ flrt x = approx (round . (sqrt::Double->Double) . fromInteger $ x)
 
          a//b = a`div`b + if (a>0)==(b>0) then 1 else 0
 
-problem42 = HasInputI p42
+problem42 = HasInput $ show . p42

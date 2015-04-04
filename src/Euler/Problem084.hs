@@ -43,4 +43,4 @@ pad x = if length x == 1 then '0':x else x
 p84 rs = concatMap (pad . show . fst) . take 3 . sortBy (flip $ comparing snd) . simulate (10^5) 0 
          $ zip rs (tail rs)
 
-problem84 = HasRandoS (1,4) p84
+problem84 = HasRando (1,4) p84

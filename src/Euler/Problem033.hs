@@ -13,6 +13,6 @@ canceling n d
       nn = n `div` 10
       nd = d `mod` 10
 
-problem33 = NoInputI . denominator $ product [ a%b | a <- [10..99]
+problem33 = NoInput . show . denominator $ product [ a%b | a <- [10..99]
                                              , b <- [a+1..99]
                                              , canceling a b]

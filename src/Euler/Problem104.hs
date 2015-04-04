@@ -30,4 +30,4 @@ findFibPan n1 n2 c
                    in floor $ 10**(temp - fromIntegral (floor temp) + 9 - 1)
           last9 = (n1 + n2) `mod` 10^9
 
-problem104 = NoInputI $ findFibPan 1 1 3
+problem104 = NoInput . show $ findFibPan 1 1 3

@@ -16,7 +16,7 @@ same (xs,ys) = xs' == ys'
           ys' = accumArray (+) 0 ('0','9') . zip (show ys) $ repeat 1
 
 
-problem70 = NoInputI . fst $ foldl' sift (87109,79180) [ (x, sieveTotient sieve x) 
+problem70 = NoInput . show . fst $ foldl' sift (87109,79180) [ (x, sieveTotient sieve x) 
                                                          | x <- [8000000..9999999]
                                                        , gcd x smallPrimes == 1 ]
     where sieve = totientSieve $ 10^7

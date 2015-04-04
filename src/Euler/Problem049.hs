@@ -18,4 +18,4 @@ testableSequences = concatMap magic lessRoughSequences
 
 arithmeticSequence [a,b,c] = let d = b-a in b+d == c
 
-problem49 = NoInputS . concatMap show . last . filter arithmeticSequence $ testableSequences
+problem49 = NoInput . concatMap show . last . filter arithmeticSequence $ testableSequences

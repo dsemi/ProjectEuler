@@ -11,4 +11,4 @@ generalizedHamming limit typ      = countHamming limit $ reverse ps
           countHamming lim (p:ps) = sum (map (flip countHamming ps . (lim `div`)) $ map (p^) [1..integerLogBase p lim]) + countHamming lim ps
           ps                      = takeWhile (<typ) primes
 
-problem204 = NoInputI $ generalizedHamming (10^9) 100
+problem204 = NoInput . show $ generalizedHamming (10^9) 100

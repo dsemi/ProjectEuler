@@ -87,7 +87,7 @@ search g =
 solve :: String -> Maybe Grid
 solve str = parseGrid str >>= search
 
-problem96 = HasInputI $ foldl' (\s grid -> let (Just g) = solve grid
+problem96 = HasInput $ show . foldl' (\s grid -> let (Just g) = solve grid
                                            in s + read ((g ! ('A','1')) ++
                                                         (g ! ('A','2')) ++
                                                         (g ! ('A','3')))

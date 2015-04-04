@@ -14,4 +14,4 @@ findSqrt n limit = find (5*n,5)
               | a >= b    = find (a-b, b+10)
               | otherwise = find (100*a, b*10 - 45)
 
-problem80 = NoInputI . sum . map (sumDigits . flip findSqrt 100) $ [1..100] `minus` scanl1 (+) [1,3..]
+problem80 = NoInput . show . sum . map (sumDigits . flip findSqrt 100) $ [1..100] `minus` scanl1 (+) [1,3..]

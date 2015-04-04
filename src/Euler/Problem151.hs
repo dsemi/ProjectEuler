@@ -24,4 +24,4 @@ p151 a2 a3 a4 a5 = (pickA2 + pickA3 + pickA4 + pickA5) / (a2 + a3 + a4 + a5)
 
 rnd d p = (*p) . fromIntegral $ round (d / p)
 
-problem151 = NoInputS . show $ rnd (p151 1 1 1 1) 0.000001
+problem151 = NoInput . show $ rnd (p151 1 1 1 1) 0.000001

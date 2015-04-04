@@ -215,8 +215,7 @@ parseArgs args = let (Args a b c d e) = foldr pa (Args False False False False [
               | otherwise                     = undefined -- again
 
 findInput :: Int -> IO String
-findInput n = glob inpPattern >>= readFile . head
-    where inpPattern = "src/Euler/" ++ show n ++ "/*.txt"
+findInput n = readFile $ "src/Euler/problem" ++ show n ++ ".txt"
 
 $(buildProbs)
 
@@ -224,19 +223,18 @@ maybeRun :: Int -> IO ()
 maybeRun n = maybe (printf notfound n) (run n) $ lookup n problems
     where notfound = "Problem %d is not implemented\n"
           str      = "Problem %3d: %28s\n"
-          int      = "Problem %3d: %28d\n"
           run :: (Integral a) => Int -> Problem a -> IO ()
           run n p = case p of
-                      (NoInputS prob)     -> printf str n prob
-                      (NoInputI prob)     -> printf int n $ toInteger prob
-                      (HasInputS prob)    -> findInput n >>= printf str n . prob
-                      (HasInputI prob)    -> findInput n >>= printf int n . toInteger . prob
-                      (HasRandoS ab prob) -> newStdGen >>= printf str n . prob . randomRs ab
+                      (NoInput prob)      -> printf str n prob
+                      (HasInput prob)     -> findInput n >>= printf str n . prob
+                      (HasRando rng prob) -> newStdGen >>= printf str n . prob . randomRs rng
 
 main = do
   basedir <- getProgPath -- Need to chdir to here
   args <- liftM parseArgs getArgs
-  mapM maybeRun $ probs args
+  let ps = probs args
+  mapM maybeRun ps
+  printf "Total   %3d\n" $ length ps
 
    -- TODO: find missing problems
    -- TODO: time running of problems

@@ -28,4 +28,4 @@ num i = ps n i 0
               | otherwise = ps x' f $ c+x'
               where x' = x `div` f
  
-problem160 = NoInputI $ result * powerMod 2 (num 2 - num 5) lim `mod` lim
+problem160 = NoInput . show $ result * powerMod 2 (num 2 - num 5) lim `mod` lim

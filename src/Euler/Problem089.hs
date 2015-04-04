@@ -23,4 +23,4 @@ p89 roman = let old = lines roman
                 new = map (numToRoman 0 []) $ map romanToNum old
             in length (concat old) - length (concat new)
 
-problem89 = HasInputI p89
+problem89 = HasInput $ show . p89

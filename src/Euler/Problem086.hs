@@ -9,7 +9,7 @@ integerCuboidRoute m = sum [ if wh > m then m + 1 - (wh+1) `div` 2 else wh `div`
                            , integerCuboid m wh ]
     where integerCuboid l wh = isSquare (l^2 + wh^2)
 
-problem86 = NoInputI $ findIntegerCuboidRoute (10^6) 0 0
+problem86 = NoInput . show $ findIntegerCuboidRoute (10^6) 0 0
     where findIntegerCuboidRoute lim m c
               | c >= lim = m
               | otherwise = findIntegerCuboidRoute lim (m+1) $ c + integerCuboidRoute (m+1)

@@ -13,7 +13,7 @@ primeSums n ll = let l = scanl1 (+) $ takeWhile (<n) primes
 
 problem50 = let n        = 1000000
                 primeSum = primeSums n 393
-            in NoInputI . snd . maximum $ [ (a-b,s) | a <- range (bounds primeSum)
+            in NoInput . show . snd . maximum $ [ (a-b,s) | a <- range (bounds primeSum)
                                           , b <- [0..a]
                                           , let s = (primeSum ! a) - (primeSum ! b)
                                           , s < n

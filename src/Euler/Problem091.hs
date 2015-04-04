@@ -20,4 +20,4 @@ numRightTriangles lim = sum [ validPts + if y == 0 then lim else 0 | pt <- tail 
                             , let validPts = count f1 pt (uncurry (&&) . ((<=lim) *** (>=0))) +
                                              count f2 pt (uncurry (&&) . ((>=0) *** (<=lim))) - 2 ]
 
-problem91 = NoInputI $ numRightTriangles 50
+problem91 = NoInput . show $ numRightTriangles 50

@@ -17,4 +17,4 @@ import Euler.Util
 
 numSolutions n = (tau (n^2) + 1 ) `div` 2
 
-problem108 = NoInputI . head $ dropWhile ((<=1000) . numSolutions) [4..]
+problem108 = NoInput . show . head $ dropWhile ((<=1000) . numSolutions) [4..]
