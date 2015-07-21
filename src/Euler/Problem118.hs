@@ -2,7 +2,6 @@ module Euler.Problem118
 ( problem118
 ) where
 
-import Control.Lens
 import Data.List (permutations)
 import Euler.Util
 import Math.NumberTheory.Primes
@@ -17,7 +16,7 @@ checkPermutations = sum . map (cp 0 9)
     where cp :: Int -> Int -> [Int] -> Int
           cp _ _ [] = 1
           cp p l xs = sum [ cp next (l-n) rest | n <- [1..l]
-                          , let (next,rest) = _1 %~ digitsToInt $ splitAt n xs
+                          , let (next,rest) = (\(a,b) -> (digitsToInt a, b)) $ splitAt n xs
                           , next > p
                           , isPrime $ toInteger next ]
 
