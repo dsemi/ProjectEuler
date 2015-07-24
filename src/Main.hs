@@ -11,6 +11,7 @@ import Language.Haskell.TH
 import System.CPUTime
 import System.Environment
 import System.Environment.FindBin
+import System.IO
 import System.Path.Glob
 import System.Random
 import Text.Printf
@@ -233,6 +234,7 @@ main = do
   basedir <- getProgPath -- Need to chdir to here
   args <- liftM parseArgs getArgs
   let ps = probs args
+  hSetBuffering stdout LineBuffering
   mapM maybeRun ps
   printf "Total   %3d\n" $ length ps
 
