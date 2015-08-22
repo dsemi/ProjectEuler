@@ -8,7 +8,6 @@ import Data.Maybe
 import Euler.Util
 import Euler.Problems
 import Language.Haskell.TH
-import System.CPUTime
 import System.Environment
 import System.Environment.FindBin
 import System.IO
@@ -131,6 +130,7 @@ import Euler.Problem102
 import Euler.Problem104
 import Euler.Problem107
 import Euler.Problem108
+import Euler.Problem109
 
 import Euler.Problem112
 import Euler.Problem113
@@ -186,6 +186,8 @@ import Euler.Problem243
 import Euler.Problem267
 
 import Euler.Problem277
+
+import Euler.Problem387
 
 import Euler.Problem443
 

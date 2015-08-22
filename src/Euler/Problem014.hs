@@ -13,4 +13,4 @@ collatzLen c n
     | testBit n 0  = collatzLen (c+2) (shiftR (3*n + 1) 1)
     | otherwise    = collatzLen (c+1) (shiftR n 1)
 
-problem14 = NoInput . show . snd $ foldl1' max [(collatzLen 0 x,x) | x <- [500000..1000000]]
+problem14 = NoInput . show . snd $ foldl1' max [(collatzLen 0 x,x) | x <- [1..1000000]]
