@@ -178,6 +178,7 @@ import Euler.Problem188
 import Euler.Problem191
 
 import Euler.Problem204
+import Euler.Problem205
 import Euler.Problem206
 import Euler.Problem207
 
