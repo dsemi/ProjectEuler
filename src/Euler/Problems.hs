@@ -1,5 +1,3 @@
-{-# LANGUAGE TemplateHaskell #-}
-
 module Euler.Problems
 ( buildProbs
 ) where

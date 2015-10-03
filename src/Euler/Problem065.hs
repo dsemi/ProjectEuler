@@ -8,7 +8,7 @@ import Data.List (intercalate)
 import Euler.Util
 
 x :: [Rational]
-x = 1:(intercalate [1,1] $ map (\x -> [x]) [2,4..])
+x = 1:intercalate [1,1] (map (:[]) [2,4..])
 
 eIteration 1 = 2
 eIteration n = (+2) . recip . foldl (\acc a -> a + recip acc) (x !! (n-2)) . reverse $ take (n-2) x

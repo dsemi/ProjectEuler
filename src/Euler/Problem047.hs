@@ -11,6 +11,6 @@ problem47 = let numsWithNFactors = [ x | x <- [1..]
             in NoInput . show $ findNConsec numsWithNFactors 0 0
     where n = 4
           findNConsec (num:nums) p c
-              | c == n-1     = p + 1 - (fromIntegral n)
+              | c == n-1     = p + 1 - fromIntegral n
               | num - p == 1 = findNConsec nums num (c+1)
               | otherwise    = findNConsec nums num 0

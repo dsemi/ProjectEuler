@@ -15,12 +15,12 @@ findMin f stop start = fst $ fm start (0.0001, f 0.0001)
 
 n `choose` r = product [n-r+1..n] `div` product [1..r]
 
-round12 n = (fromIntegral $ round $ 10^12 * n) / (10^^12)
+round12 n = fromIntegral (round $ 10^12 * n) / (10^^12)
 
 problem267 = let f       = findMin func 0.9999 0.0001
                  won  n  = n + 2 * f * n
                  lost n  = n - f * n
                  final r = (!! r) $ iterate won $ (!! (1000-r)) $ iterate lost 1
                  lim     = fromIntegral $ head [ r | r <- [1..1000], final r > 10^9]
-             in NoInput . show . round12 
-                    $ (sum $ map (fromIntegral . choose 1000) [lim..1000]) / fromIntegral (2^1000)
+             in NoInput . show . round12
+                    $ sum (map (fromIntegral . choose 1000) [lim..1000]) / fromIntegral (2^1000)

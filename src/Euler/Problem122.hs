@@ -13,7 +13,7 @@ paths n m d l
     | null children || cutoff = m
     | otherwise     = let m' = foldl (\ma x -> M.insert x (min' (M.lookup x ma) d) ma) m children
                       in foldl (\ma x -> paths n ma (d+1) (x:l)) m' children
-    where children  = filter (<=n) $ map ((head l)+) l
+    where children  = filter (<=n) $ map (head l +) l
           cutoff    = all (`M.member` m) children && all (<d) (map (m M.!) children)
 
 expoMap n = let twos  = takeWhile (<=n) $ iterate (*2) 1
@@ -23,4 +23,4 @@ expoMap n = let twos  = takeWhile (<=n) $ iterate (*2) 1
 
 problem122 = let n = 200
                  m = expoMap 200
-             in NoInput . show . sum $ map (m M.!) [1..n] 
+             in NoInput . show . sum $ map (m M.!) [1..n]

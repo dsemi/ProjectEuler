@@ -10,7 +10,7 @@ maxProduct4 xs = maximum $ zipWith4 (\w x y z -> w*x*y*z) xs (tail xs) (drop 2 x
 maxProductRowCol4 g = maximum $ map maxProduct4 g ++ map maxProduct4 (transpose g)
 
 maxProductDiag4 g = maximum $ map maxProduct4 (filter ((>=4) . length) (left1 ++ tail left2 ++ right1 ++ tail right2))
-    where 
+    where
       fg     = map reverse g
       left1  = transpose $ zipWith drop [0..] g
       left2  = transpose $ zipWith drop [0..] (transpose g)
@@ -22,4 +22,4 @@ maxGridProduct4 g = max rowsCols diags
     where rowsCols = maxProductRowCol4 g
           diags    = maxProductDiag4 g
 
-problem11 = HasInput $ show . maxGridProduct4 . map ((map read) . words) . lines
+problem11 = HasInput $ show . maxGridProduct4 . map (map read . words) . lines

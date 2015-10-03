@@ -15,15 +15,15 @@ combos n xs = [ y:ys | y:xs' <- tails xs
 
 
 sameKeySameVal [] = True
-sameKeySameVal ((a,b):xs) = all (\(a',b') -> case () of 
+sameKeySameVal ((a,b):xs) = all (\(a',b') -> case () of
                                                _ | a' == a -> b' == b
                                                  | b' == b -> a' == a
-                                                 | otherwise -> True) xs && 
+                                                 | otherwise -> True) xs &&
                             sameKeySameVal xs
 
 
 sqGrams xs@(x:_) = let nd = length x
-                       squares = map show . takeWhile (<10^nd) . dropWhile (<10^(nd-1)) 
+                       squares = map show . takeWhile (<10^nd) . dropWhile (<10^(nd-1))
                                  $ map (^2) [1..]
                    in maximum' [ maximum nums | p <- squares
                                , let pairs = zip x p
@@ -31,13 +31,13 @@ sqGrams xs@(x:_) = let nd = length x
                                , let cm = M.fromList pairs
                                , let nums = map (wordToNum cm) xs
                                , all isSquare nums
-                               , all (/='0') (map ((cm M.!) . head) xs)]
+                               , '0' `notElem` map ((cm M.!) . head) xs]
     where wordToNum m = read . map (m M.!)
           maximum' [] = Nothing
           maximum' (x:_) = Just x
 
 p98 wFile = let words = read ('[' : wFile ++ "]") :: [String]
-            in maximum . mapMaybe sqGrams . filter ((>1) . length) . M.elems 
+            in maximum . mapMaybe sqGrams . filter ((>1) . length) . M.elems
                    $ M.fromListWith (++) [(sort w,[w]) | w <- words]
 
 problem98 = HasInput $ show . p98

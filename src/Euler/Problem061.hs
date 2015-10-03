@@ -24,7 +24,7 @@ magic chain used
                      then Nothing
                      else head next
     where cycles x1 x2 = x1 `mod` 100 == x2 `div` 100
-          left = filter ((`cycles` (head chain)) . fst) $
+          left = filter ((`cycles` head chain) . fst) $
                  filter (not . (`elem` used) . snd) nums
 
 

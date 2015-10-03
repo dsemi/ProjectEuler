@@ -11,7 +11,6 @@ import Language.Haskell.TH
 import System.Environment
 import System.Environment.FindBin
 import System.IO
-import System.Path.Glob
 import System.Random
 import Text.Printf
 
@@ -240,7 +239,7 @@ main = do
   args <- liftM parseArgs getArgs
   let ps = probs args
   hSetBuffering stdout LineBuffering
-  mapM maybeRun ps
+  mapM_ maybeRun ps
   printf "Total   %3d\n" $ length ps
 
    -- TODO: find missing problems

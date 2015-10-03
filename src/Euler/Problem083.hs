@@ -16,11 +16,11 @@ arrayMatrix lists = let rlen = length lists
                         r    = ((1,1), (rlen, clen))
                     in array r . zip (range r) $ concat lists
 
-a_star start goal h m = search S.empty (S.singleton start) 
-                        (M.singleton start (m ! start)) 
+aStar start goal h m = search S.empty (S.singleton start)
+                        (M.singleton start (m ! start))
                         $ M.singleton start (m ! start + h ! start)
     where neighbors (r,c) = filter (inRange $ bounds m) [ (r-1,c), (r,c+1), (r+1,c) , (r,c-1)]
-          search :: S.HashSet (Int,Int) -> S.HashSet (Int,Int) 
+          search :: S.HashSet (Int,Int) -> S.HashSet (Int,Int)
                  -> M.HashMap (Int,Int) Int -> M.HashMap (Int,Int) Int -> Int
           search closed open gs fs
               | S.null open     = 0
@@ -40,7 +40,7 @@ p83 mFile = let matrix    = arrayMatrix . map (read . ('[':) . (++"]")) $ lines 
                 bds       = bounds matrix
                 ulim      = snd bds
                 heuristic = let m = minimum $ elems matrix
-                            in listArray bds . map (\(r,c) -> (uncurry (+) ulim)-r-c) $ range bds
-            in a_star (1,1) ulim heuristic matrix
+                            in listArray bds . map (\(r,c) -> uncurry (+) ulim - r - c) $ range bds
+            in aStar (1,1) ulim heuristic matrix
 
 problem83 = HasInput $ show . p83

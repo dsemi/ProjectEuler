@@ -13,7 +13,7 @@ rads n = runST $ do
             a <- M.replicate (n+1) (1,1)
             forM_ [2..n] $ \p -> do
               (cu,_) <- M.unsafeRead a p
-              when (cu == 1) $ do
+              when (cu == 1) $
                 forM_ [p,2*p..n] $ \v -> do
                   (c,_) <- M.unsafeRead a v
                   M.unsafeWrite a v (c*p,v)

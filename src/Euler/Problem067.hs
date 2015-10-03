@@ -4,5 +4,5 @@ module Euler.Problem067
 
 import Euler.Util
 
-problem67 = HasInput $ show . head . foldr1 reduce . map ((map read) . words) . lines
+problem67 = HasInput $ show . head . foldr1 reduce . map (map read . words) . lines
     where reduce a b = zipWith (+) a . zipWith max b $ tail b

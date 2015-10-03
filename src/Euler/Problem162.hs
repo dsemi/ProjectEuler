@@ -8,7 +8,7 @@ import Euler.Util
 applyUntil n f x' = au n f x' [x']
     where au n f x rs
               | n == fx   = rs
-              | otherwise = au n f (fx) $ fx : rs
+              | otherwise = au n f fx $ fx : rs
               where fx = f x
 
 hex :: Int -> String

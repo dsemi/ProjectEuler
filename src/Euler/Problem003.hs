@@ -1,5 +1,5 @@
 module Euler.Problem003
-( problem3 
+( problem3
 ) where
 
 import Data.List (unfoldr)

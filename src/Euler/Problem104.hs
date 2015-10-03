@@ -12,9 +12,7 @@ pandigital x = p x 0 0
         p 0 digits count = digits == 511
         p n digits count = let (n', d) = divMod n 10
                                digits' = digits .|. shiftL 1 (d-1)
-                           in if digits == digits'
-                              then False
-                              else p n' digits' (count+1)
+                           in digits /= digits' && p n' digits' (count+1)
 
 log10 = log 10
 logPhi = log ((1 + sqrt 5) / 2) / log10

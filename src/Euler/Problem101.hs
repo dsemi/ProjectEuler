@@ -7,10 +7,12 @@ module Euler.Problem101
 
 -- matrix will be nxn eqn degree n-1
 
-import Control.Arrow
-import Data.Ratio
-import Data.List (inits, foldl', find)
 import Euler.Util
+
+import Control.Arrow
+import Data.Maybe
+import Data.List (inits, foldl', find)
+import Data.Ratio
 
 us = map (id &&& u) [1..]
     where u n = 1 - n + n^2 - n^3 + n^4 - n^5 + n^6 - n^7 + n^8- n^9 + n^10
@@ -21,7 +23,7 @@ rref m = f m 0 [0 .. rows - 1]
           cols                      = length $ head m
           f m _    []               = m
           f m lead (r : rs)
-              | indices == Nothing  = m
+              | isNothing indices   = m
               | otherwise           = f m' (lead' + 1) rs
               where indices         = find p l
                     p (col, row)    = m !! row !! col /= 0

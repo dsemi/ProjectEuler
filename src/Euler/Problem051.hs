@@ -23,6 +23,6 @@ checkPrime p
     where poss  = map ($ p) [filter (=='0'), filter (=='1'), filter (=='2')]
           x     = maximumBy (compare `on` length) poss
           num   = if length x > 2 then Just (head x) else Nothing
-          repls = map (\x -> [x]) ['0'..'9']
+          repls = map (:[]) ['0'..'9']
 
 problem51 = NoInput . head $ filter checkPrime primeNums

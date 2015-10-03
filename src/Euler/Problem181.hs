@@ -12,11 +12,11 @@ partitions b w = let dpArray :: UArray (Int,Int) Int
                        a <- newArray ((0,0), (b,w)) 0
                        writeArray a (0,0) 1
                        let nums = tail [(i,j) |  i <- [0..b], j <- [0..w]]
-                       forM_ nums $ \(i,j) -> do
-                         forM_ [i..b] $ \k -> do
-                           forM_ [j..w] $ \l -> do
-                             liftM2 (+) (readArray a (k,l)) (readArray a (k-i,l-j)) 
-                                        >>= writeArray a (k,l)
+                       forM_ nums $ \(i,j) ->
+                           forM_ [i..b] $ \k ->
+                               forM_ [j..w] $ \l ->
+                                   liftM2 (+) (readArray a (k,l)) (readArray a (k-i,l-j))
+                                             >>= writeArray a (k,l)
                        return a
                  in dpArray ! (b,w)
 
