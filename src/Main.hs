@@ -228,11 +228,11 @@ maybeRun :: Int -> IO ()
 maybeRun n = maybe (printf notfound n) (run n) $ lookup n problems
     where notfound = "Problem %d is not implemented\n"
           str      = "Problem %3d: %28s\n"
-          run :: (Integral a) => Int -> Problem a -> IO ()
+          run :: (Integral a) => Int -> Problem -> IO ()
           run n p = case p of
-                      (NoInput prob)      -> printf str n prob
-                      (HasInput prob)     -> findInput n >>= printf str n . prob
-                      (HasRando rng prob) -> newStdGen >>= printf str n . prob . randomRs rng
+                      (NoInput prob)  -> printf str n prob
+                      (HasInput prob) -> findInput n >>= printf str n . prob
+                      (HasRando prob) -> newStdGen >>= printf str n . prob
 
 main = do
   basedir <- getProgPath -- Need to chdir to here

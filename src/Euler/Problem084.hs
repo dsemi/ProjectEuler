@@ -2,11 +2,13 @@ module Euler.Problem084
 ( problem84
 ) where
 
-import Data.Ord
+import Euler.Util
+
 import Control.Monad
 import Data.List (sortBy)
 import qualified Data.Map as M
-import Euler.Util
+import Data.Ord
+import System.Random
 
 us = [12,28]
 rrs = [5,15,25,35]
@@ -40,7 +42,7 @@ simulate cnt sq rolls = M.toList $ sim cnt (M.fromList . zip [0..39] $ repeat 0)
 
 pad x = if length x == 1 then '0':x else x
 
-p84 rs = concatMap (pad . show . fst) . take 3 . sortBy (flip $ comparing snd) . simulate (10^5) 0 
+p84 rs = concatMap (pad . show . fst) . take 3 . sortBy (flip $ comparing snd) . simulate (10^5) 0
          $ zip rs (tail rs)
 
-problem84 = HasRando (1,4) p84
+problem84 = HasRando $ p84 . randomRs (1,4)

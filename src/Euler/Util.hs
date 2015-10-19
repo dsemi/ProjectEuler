@@ -1,8 +1,10 @@
 module Euler.Util where
 
-data Problem a = NoInput String
-               | HasInput (String -> String)
-               | HasRando (Int, Int) ([Int] -> String)
+import System.Random
+
+data Problem = NoInput String
+             | HasInput (String -> String)
+             | HasRando (StdGen -> String)
 
 over3 :: (a -> b) -> (a, a, a) -> (b, b, b)
 over3 f (a, b, c) = (f a, f b, f c)

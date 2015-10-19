@@ -35,7 +35,7 @@ params = [ "5616185650518293 ;2"
          , "3041631117224635 ;3"
          , "1841236454324589 ;3"
          , "2659862637316867 ;2" ]
-         
+
 solve = head . foldM (\a (b,c) -> next [] a b c) initsol
   where initsol :: [Either Int (UArray Int Bool)]
         initsol = replicate 16 . Right . listArray (0,9) $ replicate 10 True
@@ -49,9 +49,11 @@ next acc (s:ss) n (x:xs) = case s of
 next acc _ 0 _ = return $ reverse acc
 next acc _ _ _ = []
 
-problem185 = NoInput . map parseSol . solve . sortBy (comparing fst) 
-       $ map parseL params
-    where parseL x = let [num,c] = split " ;" x 
+problem185 = NoInput . map parseSol . solve . sortBy (comparing fst)
+             $ map parseL params
+    where parseL x = let [num,c] = split " ;" x
                      in (digitToInt (head c), map digitToInt num)
           getDigit = intToDigit . head . map fst . filter snd . assocs
           parseSol = either intToDigit getDigit
+
+-- problem185' =
