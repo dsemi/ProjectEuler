@@ -2,12 +2,15 @@
 
 module Main where
 
+import Control.DeepSeq
 import Control.Monad
 import Data.List.Split
 import Data.Maybe
 import Euler.Util
 import Euler.Problems
 import Language.Haskell.TH
+import System.Console.ANSI
+import System.CPUTime
 import System.Environment
 import System.Environment.FindBin
 import System.IO
@@ -224,27 +227,36 @@ findInput n = readFile $ "src/Euler/problem" ++ show n ++ ".txt"
 
 $(buildProbs)
 
-maybeRun :: Int -> IO ()
-maybeRun n = maybe (printf notfound n) (run n) $ lookup n problems
+maybeRun :: Int -> IO Double
+maybeRun n = maybe (printf notfound n >> return 0) (run n) $ lookup n problems
     where notfound = "Problem %d is not implemented\n"
-          str      = "Problem %3d: %28s\n"
-          run :: (Integral a) => Int -> Problem -> IO ()
-          run n p = case p of
-                      (NoInput prob)  -> printf str n prob
-                      (HasInput prob) -> findInput n >>= printf str n . prob
-                      (HasRando prob) -> newStdGen >>= printf str n . prob
+          str      = "Problem %3d: %28s  Elapsed time %s%.3f%s seconds\n"
+          resetCode = setSGRCode [Reset]
+          colorCode n = setSGRCode [SetColor Foreground Dull c]
+              where c | n < 0.5   = Green
+                      | n < 1     = Yellow
+                      | otherwise = Red
+          run :: (Integral a) => Int -> Problem -> IO Double
+          run n p = do
+            start <- getCPUTime
+            ans <- case p of
+                     (NoInput prob)  -> return prob
+                     (HasInput prob) -> prob <$> findInput n
+                     (HasRando prob) -> prob <$> newStdGen
+            rnf ans `seq` return ()
+            end <- getCPUTime
+            let elapsedTime = fromIntegral (end - start) / 10^12
+            printf str n ans (colorCode elapsedTime) elapsedTime resetCode
+            return elapsedTime
 
 main = do
   basedir <- getProgPath -- Need to chdir to here
   args <- liftM parseArgs getArgs
   let ps = probs args
   hSetBuffering stdout LineBuffering
-  mapM_ maybeRun ps
-  printf "Total   %3d\n" $ length ps
+  totalTime <- foldM (\acc x -> (+acc) <$> maybeRun x) 0 ps
+  printf "Total   %3d: %48.3f seconds\n" (length ps) totalTime
 
    -- TODO: find missing problems
-   -- TODO: time running of problems
-   -- TODO: color code
-   -- TODO: display number of problems ran
    -- TODO: analyze (sort)
    -- TODO: could implement adding of new problem which adds the import/uncomments and dls problem description
