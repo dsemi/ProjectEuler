@@ -227,34 +227,43 @@ findInput n = readFile $ "src/Euler/problem" ++ show n ++ ".txt"
 
 $(buildProbs)
 
+colorizeTime :: Double -> String
+colorizeTime n = printf "%s%.3f%s" startCode n endCode
+    where startCode = setSGRCode [SetColor Foreground Dull c]
+          endCode   = setSGRCode [Reset]
+          c | n < 0.5   = Green
+            | n < 1     = Yellow
+            | otherwise = Red
+
+timeFunc :: (NFData a) => IO a -> IO (a, Double)
+timeFunc f = do
+  start <- getCPUTime
+  result <- f
+  rnf result `seq` return ()
+  end <- getCPUTime
+  let elapsedTime = fromIntegral (end - start) / 10^12
+  return (result, elapsedTime)
+
 maybeRun :: Int -> IO Double
-maybeRun n = maybe (printf notfound n >> return 0) (run n) $ lookup n problems
-    where notfound = "Problem %d is not implemented\n"
-          str      = "Problem %3d: %28s  Elapsed time %s%.3f%s seconds\n"
-          resetCode = setSGRCode [Reset]
-          colorCode n = setSGRCode [SetColor Foreground Dull c]
-              where c | n < 0.5   = Green
-                      | n < 1     = Yellow
-                      | otherwise = Red
-          run :: (Integral a) => Int -> Problem -> IO Double
-          run n p = do
-            start <- getCPUTime
-            ans <- case p of
-                     (NoInput prob)  -> return prob
-                     (HasInput prob) -> prob <$> findInput n
-                     (HasRando prob) -> prob <$> newStdGen
-            rnf ans `seq` return ()
-            end <- getCPUTime
-            let elapsedTime = fromIntegral (end - start) / 10^12
-            printf str n ans (colorCode elapsedTime) elapsedTime resetCode
+maybeRun n = maybe notfound run $ lookup n problems
+    where notfound = do
+            printf "Problem %d is not implemented\n" n
+            return 0
+          str      = "Problem %3d: %28s  Elapsed time %s seconds\n"
+          run :: (Integral a) => Problem -> IO Double
+          run p = do
+            (ans, elapsedTime) <- timeFunc $ case p of
+                                               NoInput prob  -> return prob
+                                               HasInput prob -> prob <$> findInput n
+                                               HasRando prob -> prob <$> newStdGen
+            printf str n ans $ colorizeTime elapsedTime
             return elapsedTime
 
 main = do
   basedir <- getProgPath -- Need to chdir to here
   args <- liftM parseArgs getArgs
   let ps = probs args
-  hSetBuffering stdout LineBuffering
-  totalTime <- foldM (\acc x -> (+acc) <$> maybeRun x) 0 ps
+  totalTime <- foldM (\acc -> liftM (+acc) . maybeRun) 0 ps
   printf "Total   %3d: %48.3f seconds\n" (length ps) totalTime
 
    -- TODO: find missing problems
