@@ -5,6 +5,6 @@ module Euler.Problem028
 import Data.List (concatMap)
 import Euler.Util
 
-diags n = 1:takeWhile (<n+1) (map (+1) $ scanl1 (+) (concatMap (replicate 4) [2,4..]))
+diags n = takeWhile (<=n) . scanl (+) 1 $ concatMap (replicate 4) [2,4..]
 
 problem28 = NoInput . show . sum $ diags (1001^2)
