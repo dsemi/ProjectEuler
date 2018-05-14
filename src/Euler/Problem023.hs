@@ -4,10 +4,11 @@ module Euler.Problem023
 
 import Data.Array
 import Euler.Util
-import Math.NumberTheory.Primes.Factorisation
+import Math.NumberTheory.ArithmeticFunctions
 
 n = 28124
-abundant n = divisorSum n > 2*n
+abundant :: Int -> Bool
+abundant n = sigma 1 n > 2*n
 abundsArray = listArray (1,n) $ map abundant [1..n]
 abunds = filter (abundsArray !) [1..n]
 

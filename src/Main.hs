@@ -72,7 +72,7 @@ maybeRun n = maybe notfound run $ lookup n problems
             printf "Problem %d is not implemented\n" n
             return 0
           str      = "Problem %3d: %28s  Elapsed time %s seconds\n"
-          run :: (Integral a) => Problem -> IO Double
+          run :: Problem -> IO Double
           run p = do
             (ans, elapsedTime) <- timeFunc $ case p of
                                                NoInput prob  -> return prob

@@ -1,3 +1,5 @@
+{-# LANGUAGE DataKinds #-}
+
 module Euler.Problem160
 ( problem160
 ) where
@@ -5,13 +7,13 @@ module Euler.Problem160
 import Data.Array
 import Data.List.Ordered
 import Euler.Util
-import Math.NumberTheory.Powers
+import Math.NumberTheory.Moduli.Class
 import Math.NumberTheory.Logarithms
 
 n = 10^12
 lim = 10^5
 
-f p i = if i `mod` 2 /= 0 && i `mod` 5 /= 0 
+f p i = if i `mod` 2 /= 0 && i `mod` 5 /= 0
         then p*i
         else p
 
@@ -27,5 +29,5 @@ num i = ps n i 0
               | x' == 0   = c
               | otherwise = ps x' f $ c+x'
               where x' = x `div` f
- 
-problem160 = NoInput . show $ result * powerMod 2 (num 2 - num 5) lim `mod` lim
+
+problem160 = NoInput . show $ result * getVal (powMod (2 :: Mod 100000) (num 2 - num 5)) `mod` lim

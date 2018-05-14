@@ -3,6 +3,6 @@ module Euler.Problem012
 ) where
 
 import Euler.Util
-import Math.NumberTheory.Primes.Factorisation
+import Math.NumberTheory.ArithmeticFunctions
 
-problem12 = NoInput . show $ head [x | x <- scanl1 (+) [1..], tau x > 500]
+problem12 = NoInput . show $ head [x | x <- scanl1 (+) [1..], tau (x :: Int) > 500]

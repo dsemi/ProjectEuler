@@ -4,5 +4,7 @@ module Euler.Problem006
 
 import Euler.Util
 
-problem6 = let n = 100
-           in NoInput . show $ (n*(n+1) `div` 2)^2 - sum (take n (scanl1 (+) [1,3..]))
+sumSquareDifference :: Int -> Int
+sumSquareDifference n = (n*(n+1) `div` 2)^2 - sum (map (^2) [1..n])
+
+problem6 = NoInput . show $ sumSquareDifference 100

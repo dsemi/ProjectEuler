@@ -8,7 +8,6 @@ myUserHooks = simpleUserHooks {
                 preBuild = fn
               }
     where fn args _ = do
-            noExtraFlags args
             callProcess "/usr/bin/python" ["make_problem_module.py"]
             return emptyHookedBuildInfo
 

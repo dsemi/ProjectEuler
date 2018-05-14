@@ -6,12 +6,12 @@ import Control.Arrow ((&&&))
 import Control.Monad
 import Data.Bits
 import Data.Char (ord,chr)
-import Data.Function
 import Data.List (group,sort,maximumBy,transpose)
 import Data.List.Split
+import Data.Ord
 import Euler.Util
 
-mode xs = fst . maximumBy (compare `on` snd) $ elemCount
+mode xs = fst . maximumBy (comparing snd) $ elemCount
     where elemCount = map (head &&& length) . group. sort $ xs
 
 p59 cipher = let str     = map read $ splitOn "," cipher

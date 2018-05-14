@@ -1,0 +1,54 @@
+name:                ProjectEuler
+version:             0.1.0.0
+author:              Dan Seminara
+maintainer:          semi225599@gmail.com
+license:             UnspecifiedLicense
+default-extensions:
+  - DeriveFoldable
+  - DeriveFunctor
+  - DeriveTraversable
+  - LambdaCase
+  - MultiWayIf
+  - TupleSections
+
+dependencies:
+  - ansi-terminal
+  - arithmoi
+  - array
+  - base >= 4.7 && < 5
+  - containers
+  - data-ordlist
+  - deepseq
+  - digits
+  - directory
+  - FindBin
+  - hashable
+  - integer-logarithms
+  - MissingH
+  - parallel
+  - random
+  - regex-compat
+  - split
+  - template-haskell
+  - unordered-containers
+  - vector
+  - vector-algorithms
+
+executables:
+  ProjectEuler:
+    source-dirs:      src
+    main:             Main.hs
+    ghc-options:
+      - -O2
+      # - -Wall
+      # - -Wcompat
+      # - -Wincomplete-record-updates
+      # - -Wincomplete-uni-patterns
+      # - -Wredundant-constraints
+      # - -Wnoncanonical-monad-instances
+build-type: Custom
+custom-setup:
+  dependencies:
+    - base >=4.9 && <5
+    - Cabal
+    - process

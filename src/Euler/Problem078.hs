@@ -9,6 +9,7 @@ import Control.Monad.ST
 import Data.Array.ST
 import Data.Array.Base
 import Data.Array.Unboxed
+import Data.Function
 import Data.STRef
 import Euler.Util
 
@@ -24,7 +25,7 @@ partitions = runST $ do
           suite = concat [[(3*n^2-n) `div` 2,(3*n^2+n) `div` 2] | n <- [1..]]
           parts n = takeWhile (>= 0) [n-x| x <- suite]
           calcPartitions a (n:ns) c = do
-            su <- liftM (`mod` 1000000) $ foldl1 (liftM2 (+)) [liftM (s*) (unsafeRead a p) | (s,p) <- zip signs $ parts n] 
+            su <- liftM (`mod` 1000000) $ foldl1 (liftM2 (+)) [liftM (s*) (unsafeRead a p) | (s,p) <- zip signs $ parts n]
             unsafeWrite a n su
             if su /= 0 then calcPartitions a ns c else writeSTRef c n
 

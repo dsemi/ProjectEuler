@@ -12,9 +12,10 @@ module Euler.Problem108
 -- This means number of solutions must be less than n
 -- Solution maximized when n*x is divisible by most numbers between 1 and n
 
-import Math.NumberTheory.Primes.Factorisation
+import Math.NumberTheory.ArithmeticFunctions
 import Euler.Util
 
+numSolutions :: Int -> Int
 numSolutions n = (tau (n^2) + 1 ) `div` 2
 
 problem108 = NoInput . show . head $ dropWhile ((<=1000) . numSolutions) [4..]

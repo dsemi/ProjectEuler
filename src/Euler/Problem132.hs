@@ -3,9 +3,10 @@ module Euler.Problem132
 ) where
 
 import Euler.Util
+import GHC.Natural
 import Math.NumberTheory.Primes
 import Math.NumberTheory.Moduli
 
 problem132 = let k = 10^9
              in NoInput . show . sum $ take 40 [ p | p <- primes
-                                         , powerModInteger 10 k (9*p) == 1 ]
+                                         , powSomeMod (10 `modulo` naturalFromInteger (9*p)) k == 1 ]
