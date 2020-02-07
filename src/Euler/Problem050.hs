@@ -5,9 +5,10 @@ module Euler.Problem050
 import Data.Ix (range)
 import Data.Array (listArray,bounds,(!))
 import Euler.Util
-import Math.NumberTheory.Primes
+import Math.NumberTheory.Primes (primes, unPrime)
+import Math.NumberTheory.Primes.Testing
 
-primeSums n ll = let l = scanl1 (+) $ takeWhile (<n) primes
+primeSums n ll = let l = scanl1 (+) $ takeWhile (<n) $ map unPrime primes
                      i = foldr (\x acc -> if (l !! x) - (l !! (x-ll)) >= n then x else acc) (length l - 1) [ll..length l - 1]
                  in listArray (0,i) l
 
@@ -18,5 +19,3 @@ problem50 = let n        = 1000000
                                           , let s = (primeSum ! a) - (primeSum ! b)
                                           , s < n
                                           , isPrime s]
-
-

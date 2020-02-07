@@ -4,7 +4,8 @@ module Euler.Problem060
 
 import Euler.Util
 
-import Math.NumberTheory.Primes
+import Math.NumberTheory.Primes (primes, unPrime)
+import Math.NumberTheory.Primes.Testing
 
 concatsToPrime :: Int -> Int -> Bool
 concatsToPrime m n = all (isPrime . fromIntegral) [cc m n 0 0, cc n m 0 0]
@@ -16,7 +17,7 @@ minPrimePairSet :: Int -> [[Int]]
 minPrimePairSet n = f 0 ps
     where ps :: [Int]
           ps = map fromIntegral . tail
-               $ takeWhile (<10000) primes
+               $ takeWhile (<10000) $ map unPrime primes
           pairs :: Int -> [Int]-> [Int]
           pairs n = filter (concatsToPrime n)
                     . dropWhile (<=n)

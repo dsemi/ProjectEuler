@@ -1,8 +1,10 @@
--- This file has been generated from package.yaml by hpack version 0.27.0.
+cabal-version: 1.24
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7acd88a0e22c215f8400ae328cc16130af9c6853fde365388597e52b473dc19e
+-- hash: c80f89cd18ed72b6e175f485e4277fa0ccaea40eb6213fe1af6895b148673f16
 
 name:           ProjectEuler
 version:        0.1.0.0
@@ -11,7 +13,6 @@ maintainer:     semi225599@gmail.com
 license:        UnspecifiedLicense
 license-file:   LICENSE
 build-type:     Custom
-cabal-version:  >= 1.24
 
 custom-setup
   setup-depends:
@@ -169,6 +170,7 @@ executable ProjectEuler
       Euler.Problem205
       Euler.Problem206
       Euler.Problem207
+      Euler.Problem225
       Euler.Problem243
       Euler.Problem267
       Euler.Problem277

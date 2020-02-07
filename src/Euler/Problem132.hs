@@ -8,5 +8,5 @@ import Math.NumberTheory.Primes
 import Math.NumberTheory.Moduli
 
 problem132 = let k = 10^9
-             in NoInput . show . sum $ take 40 [ p | p <- primes
+             in NoInput . show . sum $ take 40 [ p | p <- map unPrime primes
                                          , powSomeMod (10 `modulo` naturalFromInteger (9*p)) k == 1 ]

@@ -6,7 +6,7 @@ import Euler.Util
 
 import Control.Arrow
 import Data.List (foldl', permutations)
-import Math.NumberTheory.Primes
+import Math.NumberTheory.Primes.Testing
 
 digitsToInt :: [Int] -> Int
 digitsToInt = foldl' (\c x -> 10*c + x) 0

@@ -13,5 +13,5 @@ a n = findDiv 1 1
               | r == 0    = k
               | otherwise = findDiv ((10*r+1) `mod` n) (k+1)
 
-problem130 = NoInput . show . sum $ take 25 [ n | n <- [3,5..] `minus` merge primes [5,10..]
+problem130 = NoInput . show . sum $ take 25 [ n | n <- [3,5..] `minus` merge (map unPrime primes) [5,10..]
                                       , (n - 1) `mod` a n == 0 ]

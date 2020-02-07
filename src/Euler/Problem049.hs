@@ -4,7 +4,7 @@ module Euler.Problem049
 
 import Data.List
 import Euler.Util
-import Math.NumberTheory.Primes
+import Math.NumberTheory.Primes.Testing
 
 p = map (permutations . show) $ filter isPrime [1001,1003..10000]
 

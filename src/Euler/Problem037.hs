@@ -3,7 +3,7 @@ module Euler.Problem037
 ) where
 
 import Data.List (tails,all)
-import Math.NumberTheory.Primes (isPrime)
+import Math.NumberTheory.Primes.Testing
 import Euler.Util
 
 list n = filter isLeftT $ if isPrime n then n:ns else []

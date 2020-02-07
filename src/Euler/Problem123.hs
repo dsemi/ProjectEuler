@@ -13,4 +13,4 @@ problem123 = NoInput . show . fst . head $ filter ((>10^10) . uncurry f) ps
                     SomeMod k -> getVal k
                     InfMod{} -> error "bad"
           border = ceiling . sqrt $ 10^10 + 2
-          ps = dropWhile ((<border) . snd) $ zip [1..] primes
+          ps = dropWhile ((<border) . snd) $ zip [1..] $ map unPrime primes

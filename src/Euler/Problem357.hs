@@ -7,7 +7,7 @@ import Euler.Util
 import Math.NumberTheory.Primes
 
 divisorSumPrimes lim = filter (\x -> x == 1 || x `rem` 4 == 2 && isPGI x) $ map (subtract 1) ps
-    where ps = takeWhile (< lim) primes
+    where ps = takeWhile (< lim) $ map unPrime primes
           pArray :: UArray Integer Bool
           pArray = accumArray (||) False (1, lim) . zip ps $ repeat True
           isPGI n = all (pArray !) [ d + q | d <- [2 .. floor . sqrt $ fromIntegral n]

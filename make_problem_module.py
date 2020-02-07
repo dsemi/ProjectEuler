@@ -20,7 +20,9 @@ def main():
                              '\n'.join(imported_modules))
     with open('src/Euler.hs', 'r+') as f:
         if f.read() != output:
+            f.seek(0)
             f.write(output)
+            f.truncate()
 
 if __name__ == '__main__':
     main()

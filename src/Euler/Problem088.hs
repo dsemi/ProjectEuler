@@ -19,7 +19,7 @@ allFactorizations n = map (\x -> length x + n - sum x)
                       . takeWhile ((>1) . length) . concat
                       . iterate getAllFacts . (:[]) $ expandPrimeFactor n
 expandPrimeFactor :: Int -> [Int]
-expandPrimeFactor = concatMap (\(a,b) -> replicate b $ fromIntegral a)
+expandPrimeFactor = concatMap (\(a,b) -> replicate (fromIntegral b) $ unPrime a)
                     . factorise . fromIntegral
 getAllFacts :: [[Int]] -> [[Int]]
 getAllFacts = S.toList . S.fromList . concatMap combine

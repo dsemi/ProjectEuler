@@ -145,6 +145,7 @@ module Euler
 , problem205
 , problem206
 , problem207
+, problem225
 , problem243
 , problem267
 , problem277
@@ -298,6 +299,7 @@ import Euler.Problem204
 import Euler.Problem205
 import Euler.Problem206
 import Euler.Problem207
+import Euler.Problem225
 import Euler.Problem243
 import Euler.Problem267
 import Euler.Problem277

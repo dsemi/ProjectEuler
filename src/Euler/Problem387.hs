@@ -3,7 +3,7 @@ module Euler.Problem387
 ) where
 
 import Euler.Util
-import Math.NumberTheory.Primes
+import Math.NumberTheory.Primes.Testing
 
 sumDigits n = f n 0
     where f 0 c = c

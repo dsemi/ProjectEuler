@@ -3,7 +3,7 @@ module Euler.Problem058
 ) where
 
 import Euler.Util
-import Math.NumberTheory.Primes
+import Math.NumberTheory.Primes.Testing
 
 primeRatioOnDiagonals np n r
     | fromIntegral np / fromIntegral (n*2 - 1) < r = n
@@ -11,4 +11,3 @@ primeRatioOnDiagonals np n r
 
 
 problem58 = NoInput . show $ primeRatioOnDiagonals 3 3 0.1
-

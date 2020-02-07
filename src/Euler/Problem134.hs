@@ -25,10 +25,11 @@ findS p2 p1 r = let rDigs            = reverse $ digits r
                     digsLeft         = drop count p1
                 in case digsLeft of
                      (d:rest) -> let m = p2 `mod` 10
-                                     nextD = if null notMatch then d 
+                                     nextD = if null notMatch then d
                                              else (d - snd (head notMatch)) `mod` 10
                                  in findS p2 p1 (r + p2 * 10^count * ((mods M.! m) M.! nextD))
                      _        -> r
 
 problem134 = let n = 1000000
-             in NoInput . show $ findSs (takeWhile ((<n) . fst) . drop 2 . zip primes $ tail primes) 0
+                 ps = map unPrime primes
+             in NoInput . show $ findSs (takeWhile ((<n) . fst) . drop 2 . zip ps $ tail ps) 0
