@@ -24,6 +24,7 @@ dependencies:
   - FindBin
   - hashable
   - integer-logarithms
+  - linear
   - MissingH
   - parallel
   - random
